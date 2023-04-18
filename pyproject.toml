@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "gooker"
+version = "0.1.0"
+description = "Tool for tracking and alerting about golf bookings."
+authors = ["Clayton Green <claytong@ladodgers.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+httpx = "^0.23.3"
+pydantic = "^1.10.6"
+pendulum = "^2.1.2"
+
+[tool.poetry.dev-dependencies]
+black = "^23.1.0"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
