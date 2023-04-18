@@ -73,8 +73,7 @@ def main():
             logger.info(
                 f"sleeping for {sleep_time//60} minutes {sleep_time%60} seconds"
             )
-            # time.sleep(sleep_time)
-            time.sleep(10)
+            time.sleep(sleep_time)
             with DBClient() as client:
                 asyncio.run(search.check_for_times(client))
 
