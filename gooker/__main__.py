@@ -12,8 +12,8 @@ from gooker.args import parse_args
 from gooker.database import DBClient
 
 
-MIN_SLEEP = 60 * 1
-MAX_SLEEP = 60 * 2
+MIN_SLEEP = 60 * 7
+MAX_SLEEP = 60 * 15
 
 logger = logging.getLogger(__name__)
 
