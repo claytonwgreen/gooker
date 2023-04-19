@@ -165,6 +165,8 @@ async def check_for_times(client: DBClient):
                 search.notification_destination,
             )
             client.insert_tee_time_search_results(search.id, new_results)
+        else:
+            logger.info(f"Found no new tee times for {search.id}")
 
         if missing_results:
             logger.info(f"Deleting {len(missing_results)} tee_times for {search.id}")
