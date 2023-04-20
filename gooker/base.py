@@ -8,7 +8,7 @@ from pendulum.date import Date
 from pendulum.datetime import DateTime
 from pendulum.time import Time
 from pydantic import BaseModel, validator
-from httpx import AsyncClient
+from httpx import AsyncClient, Timeout
 
 
 class Course(BaseModel):
@@ -35,6 +35,7 @@ class TeeTime(BaseModel):
     price: float
 
     @validator("tee_time")
+    @classmethod
     def must_be_pendulum_datetime(cls, val):
         if isinstance(val, datetime.datetime):
             return pendulum.instance(val)
@@ -88,12 +89,14 @@ class TeeTimeSearchParams(BaseModel):
     max_price: int | None = None
 
     @validator("start_date", "end_date")
+    @classmethod
     def must_be_pendulum_date(cls, val):
         if isinstance(val, datetime.date):
             return pendulum.date(val.year, val.month, val.day)
         return val
 
     @validator("start_time", "end_time", "earliest_time", "latest_time")
+    @classmethod
     def must_be_pendulum_time(cls, val):
         if isinstance(val, datetime.time):
             return pendulum.time(val.hour, val.minute, val.second)
@@ -148,6 +151,7 @@ class TeeTimeClient(ABC):
                 "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:109.0) Gecko/20100101 Firefox/110.0"
             },
             verify=False,
+            timeout=Timeout(120),
         )
 
     async def __aenter__(self):

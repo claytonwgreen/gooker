@@ -26,7 +26,7 @@ def send_email(subject: str, body: str, recipients: list[str]):
 
 
 async def send_message(
-    method: Literal["email"], subject: str, body: str, recipients: list[str]
+    method: str, subject: str, body: str, recipients: list[str]
 ):
     if method == "email":
         send_email(subject, body, recipients)
