@@ -31,7 +31,7 @@ class EZLinksBaseClient(base.TeeTimeClient):
                 "p03": (earliest_time or self.default_earliest_time).format("h:mm A"),
                 "p04": (latest_time or self.default_latest_time).format("h:mm A"),
                 "p05": 0,
-                "p06": min_players,
+                "p06": -1,
                 "p07": False,
             },
         )
