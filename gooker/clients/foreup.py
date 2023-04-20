@@ -72,6 +72,7 @@ class WestchesterClient(ForeUpBaseClient):
             is_par_3=False,
             is_9_hole=False,
             is_par_70_plus=False,
+            booking_url="https://foreupsoftware.com/index.php/booking/20137/3786#/teetimes",
         ),
     ]
 
@@ -84,5 +85,7 @@ class RusticCanyonClient(ForeUpBaseClient):
             is_par_3=False,
             is_9_hole=False,
             is_par_70_plus=True,
+            booking_url="https://foreupsoftware.com/index.php/booking/21903/9285#teetimes",
         ),
     ]
+
