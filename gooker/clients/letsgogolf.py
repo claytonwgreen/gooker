@@ -82,7 +82,7 @@ class LosVerdesClient(LetsGoGolfBaseClient):
             is_9_hole=False,
             is_par_70_plus=True,
             program_id=49,
-            booking_url="https://letsgo.golf/los-verdes-golf-course/teeTimes/los-verdes-golf-course-california?date=2023-04-19",
+            booking_info="https://letsgo.golf/los-verdes-golf-course/teeTimes/los-verdes-golf-course-california?date=2023-04-19",
         )
     ]
 
@@ -96,7 +96,7 @@ class MountainMeadowsClient(LetsGoGolfBaseClient):
             is_9_hole=False,
             is_par_70_plus=True,
             program_id=48,
-            booking_url="https://letsgo.golf/mountain-meadows-golf-course/teeTimes/mountain-meadows-golf-course-california",
+            booking_info="https://letsgo.golf/mountain-meadows-golf-course/teeTimes/mountain-meadows-golf-course-california",
         )
     ]
 
@@ -110,7 +110,7 @@ class ElDoradoClient(LetsGoGolfBaseClient):
             is_9_hole=False,
             is_par_70_plus=True,
             program_id=56,
-            booking_url="https://letsgo.golf/el-dorado-park-golf-course/teeTimes/el-dorado-park-golf-course-california",
+            booking_info="https://letsgo.golf/el-dorado-park-golf-course/teeTimes/el-dorado-park-golf-course-california",
         )
     ]
 
@@ -124,7 +124,7 @@ class BrooksideKoinerClient(LetsGoGolfBaseClient):
             is_9_hole=False,
             is_par_70_plus=True,
             program_id=42,
-            booking_url=""
+            booking_info="",
         ),
     ]
 
@@ -138,6 +138,6 @@ class BrooksideNayClient(LetsGoGolfBaseClient):
             is_9_hole=False,
             is_par_70_plus=True,
             program_id=42,
-            booking_url=""
+            booking_info="",
         ),
     ]

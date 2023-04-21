@@ -17,7 +17,7 @@ class Course(BaseModel):
     is_par_3: bool
     is_9_hole: bool
     is_par_70_plus: bool
-    booking_url: str
+    booking_info: str
 
     def __eq__(self, other):
         return (
@@ -65,7 +65,7 @@ class TeeTimes(BaseModel):
             msg += f"\n{date}:\n"
             for course, tee_times in course_map.items():
                 msg += f"\t{course}:\n"
-                msg += f"\t{tee_times[0].course.booking_url}\n"
+                msg += f"\t{tee_times[0].course.booking_info}\n"
                 for tee_time in sorted(
                     tee_times, key=lambda tee_time: tee_time.tee_time.time()
                 ):

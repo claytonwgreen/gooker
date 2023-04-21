@@ -8,6 +8,7 @@ from gooker.clients.letsgogolf import (
     BrooksideKoinerClient,
     BrooksideNayClient,
 )
+from gooker.clients.teeitup import IndustryHillsIkeClient, IndustryHillsBabeClient
 
 clients: list[type[base.TeeTimeClient]] = [
     LACityClient,
@@ -20,4 +21,6 @@ clients: list[type[base.TeeTimeClient]] = [
     ElDoradoClient,
     BrooksideKoinerClient,
     BrooksideNayClient,
+    IndustryHillsIkeClient,
+    IndustryHillsBabeClient,
 ]

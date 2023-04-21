@@ -74,7 +74,7 @@ class LosRoblesClient(EZLinksBaseClient):
             is_par_3=False,
             is_9_hole=False,
             is_par_70_plus=True,
-            booking_url="https://losrobles.ezlinksgolf.com/index.html#/search",
+            booking_info="https://losrobles.ezlinksgolf.com/index.html#/search",
         )
     ]
 
@@ -88,7 +88,7 @@ class TeirraRejadaClient(EZLinksBaseClient):
             is_par_3=False,
             is_9_hole=True,
             is_par_70_plus=False,
-            booking_url="https://tierrarejadapubpp.ezlinksgolf.com/index.html#/search",
+            booking_info="https://tierrarejadapubpp.ezlinksgolf.com/index.html#/search",
         ),
         base.Course(
             name="Tierra Rejada",
@@ -96,7 +96,7 @@ class TeirraRejadaClient(EZLinksBaseClient):
             is_par_3=False,
             is_9_hole=False,
             is_par_70_plus=True,
-            booking_url="https://tierrarejadapubpp.ezlinksgolf.com/index.html#/search",
+            booking_info="https://tierrarejadapubpp.ezlinksgolf.com/index.html#/search",
         ),
     ]
 
@@ -110,7 +110,7 @@ class LACityClient(EZLinksBaseClient):
             is_par_3=False,
             is_9_hole=False,
             is_par_70_plus=True,
-            booking_url="https://cityofla.ezlinksgolf.com/index.html#/preSearch",
+            booking_info="https://cityofla.ezlinksgolf.com/index.html#/preSearch",
         ),
         base.Course(
             name="Wilson",
@@ -118,7 +118,7 @@ class LACityClient(EZLinksBaseClient):
             is_par_3=False,
             is_9_hole=False,
             is_par_70_plus=True,
-            booking_url="https://cityofla.ezlinksgolf.com/index.html#/preSearch",
+            booking_info="https://cityofla.ezlinksgolf.com/index.html#/preSearch",
         ),
         base.Course(
             name="Hansen Dam",
@@ -126,7 +126,7 @@ class LACityClient(EZLinksBaseClient):
             is_par_3=False,
             is_9_hole=False,
             is_par_70_plus=True,
-            booking_url="https://cityofla.ezlinksgolf.com/index.html#/preSearch",
+            booking_info="https://cityofla.ezlinksgolf.com/index.html#/preSearch",
         ),
         base.Course(
             name="Hansen Dam - Back 9",
@@ -134,7 +134,7 @@ class LACityClient(EZLinksBaseClient):
             is_par_3=False,
             is_9_hole=True,
             is_par_70_plus=False,
-            booking_url="https://cityofla.ezlinksgolf.com/index.html#/preSearch",
+            booking_info="https://cityofla.ezlinksgolf.com/index.html#/preSearch",
         ),
         base.Course(
             name="Harbor Park",
@@ -142,7 +142,7 @@ class LACityClient(EZLinksBaseClient):
             is_par_3=False,
             is_9_hole=True,
             is_par_70_plus=False,
-            booking_url="https://cityofla.ezlinksgolf.com/index.html#/preSearch",
+            booking_info="https://cityofla.ezlinksgolf.com/index.html#/preSearch",
         ),
         base.Course(
             name="Los Feliz",
@@ -150,7 +150,7 @@ class LACityClient(EZLinksBaseClient):
             is_par_3=True,
             is_9_hole=True,
             is_par_70_plus=False,
-            booking_url="https://cityofla.ezlinksgolf.com/index.html#/preSearch",
+            booking_info="https://cityofla.ezlinksgolf.com/index.html#/preSearch",
         ),
         base.Course(
             name="Penmar",
@@ -158,7 +158,7 @@ class LACityClient(EZLinksBaseClient):
             is_par_3=False,
             is_9_hole=True,
             is_par_70_plus=False,
-            booking_url="https://cityofla.ezlinksgolf.com/index.html#/preSearch",
+            booking_info="https://cityofla.ezlinksgolf.com/index.html#/preSearch",
         ),
         base.Course(
             name="Rancho Park",
@@ -166,7 +166,7 @@ class LACityClient(EZLinksBaseClient):
             is_par_3=False,
             is_9_hole=False,
             is_par_70_plus=True,
-            booking_url="https://cityofla.ezlinksgolf.com/index.html#/preSearch",
+            booking_info="https://cityofla.ezlinksgolf.com/index.html#/preSearch",
         ),
         base.Course(
             name="Rancho Park - Back 9",
@@ -174,7 +174,7 @@ class LACityClient(EZLinksBaseClient):
             is_par_3=False,
             is_9_hole=True,
             is_par_70_plus=False,
-            booking_url="https://cityofla.ezlinksgolf.com/index.html#/preSearch",
+            booking_info="https://cityofla.ezlinksgolf.com/index.html#/preSearch",
         ),
         base.Course(
             name="Rancho Park Par-3",
@@ -182,7 +182,7 @@ class LACityClient(EZLinksBaseClient):
             is_par_3=True,
             is_9_hole=True,
             is_par_70_plus=False,
-            booking_url="https://cityofla.ezlinksgolf.com/index.html#/preSearch",
+            booking_info="https://cityofla.ezlinksgolf.com/index.html#/preSearch",
         ),
         base.Course(
             name="Roosevelt",
@@ -190,7 +190,7 @@ class LACityClient(EZLinksBaseClient):
             is_par_3=False,
             is_9_hole=True,
             is_par_70_plus=False,
-            booking_url="https://cityofla.ezlinksgolf.com/index.html#/preSearch",
+            booking_info="https://cityofla.ezlinksgolf.com/index.html#/preSearch",
         ),
         base.Course(
             name="Balboa",
@@ -198,7 +198,7 @@ class LACityClient(EZLinksBaseClient):
             is_par_3=False,
             is_9_hole=False,
             is_par_70_plus=True,
-            booking_url="https://cityofla.ezlinksgolf.com/index.html#/preSearch",
+            booking_info="https://cityofla.ezlinksgolf.com/index.html#/preSearch",
         ),
         base.Course(
             name="Balboa - Back 9",
@@ -206,7 +206,7 @@ class LACityClient(EZLinksBaseClient):
             is_par_3=False,
             is_9_hole=True,
             is_par_70_plus=False,
-            booking_url="https://cityofla.ezlinksgolf.com/index.html#/preSearch",
+            booking_info="https://cityofla.ezlinksgolf.com/index.html#/preSearch",
         ),
         base.Course(
             name="Encino",
@@ -214,7 +214,7 @@ class LACityClient(EZLinksBaseClient):
             is_par_3=False,
             is_9_hole=False,
             is_par_70_plus=True,
-            booking_url="https://cityofla.ezlinksgolf.com/index.html#/preSearch",
+            booking_info="https://cityofla.ezlinksgolf.com/index.html#/preSearch",
         ),
         base.Course(
             name="Encino - Back 9",
@@ -222,7 +222,7 @@ class LACityClient(EZLinksBaseClient):
             is_par_3=False,
             is_9_hole=True,
             is_par_70_plus=False,
-            booking_url="https://cityofla.ezlinksgolf.com/index.html#/preSearch",
+            booking_info="https://cityofla.ezlinksgolf.com/index.html#/preSearch",
         ),
         base.Course(
             name="Woodley Lakes",
@@ -230,7 +230,7 @@ class LACityClient(EZLinksBaseClient):
             is_par_3=False,
             is_9_hole=False,
             is_par_70_plus=True,
-            booking_url="https://cityofla.ezlinksgolf.com/index.html#/preSearch",
+            booking_info="https://cityofla.ezlinksgolf.com/index.html#/preSearch",
         ),
         base.Course(
             name="Woodley Lakes - Back 9",
@@ -238,6 +238,6 @@ class LACityClient(EZLinksBaseClient):
             is_par_3=False,
             is_9_hole=True,
             is_par_70_plus=False,
-            booking_url="https://cityofla.ezlinksgolf.com/index.html#/preSearch",
+            booking_info="https://cityofla.ezlinksgolf.com/index.html#/preSearch",
         ),
     ]
