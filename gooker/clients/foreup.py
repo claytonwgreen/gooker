@@ -88,3 +88,68 @@ class RusticCanyonClient(ForeUpBaseClient):
             booking_info="https://foreupsoftware.com/index.php/booking/21903/9285#teetimes",
         ),
     ]
+
+
+class BethpageBlackClient(ForeUpBaseClient):
+    courses = [
+        base.Course(
+            name="Bethpage - Black",
+            id=2431,
+            is_par_3=False,
+            is_9_hole=False,
+            is_par_70_plus=True,
+            booking_info="https://foreupsoftware.com/index.php/booking/19765/2431#teetimes",
+        )
+    ]
+
+
+class BethpageRedClient(ForeUpBaseClient):
+    courses = [
+        base.Course(
+            name="Bethpage - Red",
+            id=2432,
+            is_par_3=False,
+            is_9_hole=False,
+            is_par_70_plus=True,
+            booking_info="https://foreupsoftware.com/index.php/booking/19765/2432#teetimes",
+        )
+    ]
+
+
+class BethpageBlueClient(ForeUpBaseClient):
+    courses = [
+        base.Course(
+            name="Bethpage - Blue",
+            id=2433,
+            is_par_3=False,
+            is_9_hole=False,
+            is_par_70_plus=True,
+            booking_info="https://foreupsoftware.com/index.php/booking/19765/2433#teetimes",
+        )
+    ]
+
+
+class BethpageGreenClient(ForeUpBaseClient):
+    courses = [
+        base.Course(
+            name="Bethpage - Green",
+            id=2434,
+            is_par_3=False,
+            is_9_hole=False,
+            is_par_70_plus=True,
+            booking_info="https://foreupsoftware.com/index.php/booking/19765/2434#teetimes",
+        )
+    ]
+
+
+class BethpageYellowClient(ForeUpBaseClient):
+    courses = [
+        base.Course(
+            name="Bethpage - Yellow",
+            id=2435,
+            is_par_3=False,
+            is_9_hole=False,
+            is_par_70_plus=True,
+            booking_info="https://foreupsoftware.com/index.php/booking/19765/0#teetimes",
+        )
+    ]
