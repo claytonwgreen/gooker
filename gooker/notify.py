@@ -25,8 +25,6 @@ def send_email(subject: str, body: str, recipients: list[str]):
         server.quit()
 
 
-async def send_message(
-    method: str, subject: str, body: str, recipients: list[str]
-):
+async def send_message(method: str, subject: str, body: str, recipients: list[str]):
     if method == "email":
         send_email(subject, body, recipients)

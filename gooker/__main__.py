@@ -10,6 +10,7 @@ from gooker import base
 from gooker import search
 from gooker.args import parse_args
 from gooker.database import DBClient
+from gooker.clients import clients
 
 
 MIN_SLEEP = 60 * 7
@@ -48,6 +49,7 @@ def main():
             earliest_time=args.earliest_time,
             latest_time=args.latest_time,
             max_price=args.max_price,
+            course_group=args.course_group,
         )
 
         if args.create_search:
@@ -66,7 +68,12 @@ def main():
             tee_times = base.TeeTimes()
             for t in tee_time_list:
                 tee_times.add_tee_time(t)
-            print(tee_times.create_tee_time_message())
+
+            if tee_times.tee_times:
+                print(tee_times.create_tee_time_message())
+            else:
+                print("No tee times found.")
+
     elif args.command == "poll-for-tee-times":
         while True:
             sleep_time = random.randint(MIN_SLEEP, MAX_SLEEP)
@@ -76,6 +83,19 @@ def main():
             time.sleep(sleep_time)
             with DBClient() as client:
                 asyncio.run(search.check_for_times(client))
+
+    elif args.command in (
+        "create-course-group",
+        "add-to-course-group",
+        "remove-from-course-group",
+    ):
+        with DBClient() as client:
+            if args.command == "create-course-group":
+                client.insert_coures_group(args.course_group, args.courses)
+            elif args.command == "add-to-course-group":
+                client.add_to_course_group(args.course_group, args.courses)
+            else:
+                client.delete_from_course_group(args.course_group, args.courses)
 
 
 if __name__ == "__main__":

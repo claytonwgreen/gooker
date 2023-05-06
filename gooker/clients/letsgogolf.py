@@ -124,7 +124,7 @@ class BrooksideKoinerClient(LetsGoGolfBaseClient):
             is_9_hole=False,
             is_par_70_plus=True,
             program_id=42,
-            booking_info="",
+            booking_info="https://letsgo.golf/brookside-golf-club/teeTimes/brookside-golf-club-c-w-koiner-1-california",
         ),
     ]
 
@@ -138,6 +138,6 @@ class BrooksideNayClient(LetsGoGolfBaseClient):
             is_9_hole=False,
             is_par_70_plus=True,
             program_id=42,
-            booking_info="",
+            booking_info="https://letsgo.golf/brookside-golf-club/teeTimes/brookside-golf-club-e-o-nay-california",
         ),
     ]

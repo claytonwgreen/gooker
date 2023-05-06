@@ -73,12 +73,21 @@ async def find_tee_times(search: base.TeeTimeSearchParams) -> list[base.TeeTime]
         search.earliest_time,
         search.latest_time,
     )
+
+    if search.course_group:
+        with DBClient() as client:
+            course_list = client.get_course_group(search.course_group)
+    elif search.courses:
+        course_list = search.courses
+    else:
+        course_list = None
+
     courses = _filter_courses(
         [
             course
             for client in clients
             for course in client.courses
-            if search.courses is None or course.name in search.courses
+            if course_list is None or course.name in course_list
         ],
         search.par_70_plus,
         search.eighteen_holes,

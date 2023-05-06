@@ -1,6 +1,14 @@
 from gooker import base
 from gooker.clients.ezlinks import LACityClient, LosRoblesClient, TeirraRejadaClient
-from gooker.clients.foreup import WestchesterClient, RusticCanyonClient
+from gooker.clients.foreup import (
+    WestchesterClient,
+    RusticCanyonClient,
+    BethpageBlackClient,
+    BethpageRedClient,
+    BethpageBlueClient,
+    BethpageGreenClient,
+    BethpageYellowClient,
+)
 from gooker.clients.letsgogolf import (
     LosVerdesClient,
     MountainMeadowsClient,
@@ -23,4 +31,9 @@ clients: list[type[base.TeeTimeClient]] = [
     BrooksideNayClient,
     IndustryHillsIkeClient,
     IndustryHillsBabeClient,
+    BethpageBlackClient,
+    BethpageRedClient,
+    BethpageBlueClient,
+    BethpageGreenClient,
+    BethpageYellowClient,
 ]

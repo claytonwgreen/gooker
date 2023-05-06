@@ -165,3 +165,61 @@ class DBClient(AbstractContextManager):
                 """,
                 ((id, tee_time) for tee_time in tee_times),
             )
+
+    def get_course_group(self, course_group: str):
+        res = self.con.execute(
+            """select course_name 
+            from course_group 
+            left join course_group_course on
+                group_name = name
+            where group_name = ?
+            """,
+            (course_group,),
+        )
+        courses = res.fetchall()
+        if len(courses) == 0:
+            return None
+
+        return [row[0] for row in courses]
+
+    def insert_coures_group(self, course_group: str, courses: list[str]):
+        with self.con as transaction:
+            transaction.execute(
+                """
+                insert into course_group
+                (name)
+                values (?)
+                """,
+                (course_group,),
+            )
+            transaction.executemany(
+                """
+                insert into course_group_course
+                (group_name, course_name)
+                values (?, ?)
+                """,
+                ((course_group, course) for course in courses),
+            )
+
+    def add_to_course_group(self, course_group: str, courses: list[str]):
+        with self.con as transaction:
+            transaction.executemany(
+                """
+                insert into course_group_course
+                (group_name, course_name)
+                values (?,?)
+                """,
+                ((course_group, course) for course in courses),
+            )
+
+    def delete_from_course_group(self, course_group: str, courses: list[str]):
+        with self.con as transaction:
+            transaction.executemany(
+                """
+                delete from course_group_course
+                where
+                    group_name = ?
+                    and course_name = ?
+                """,
+                ((course_group, course) for course in courses),
+            )

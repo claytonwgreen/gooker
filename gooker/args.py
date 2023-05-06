@@ -12,6 +12,7 @@ from pendulum.datetime import DateTime
 from pendulum.time import Time
 
 from gooker.clients import clients
+from gooker.database import DBClient
 
 
 TIME_FMT = "HH:mm:ss"
@@ -48,29 +49,59 @@ def _parse_time(val: str) -> Time:
 
 
 def _validate_args(args):
-    if args.start > args.end:
-        raise ValueError("`start` must be before `end`")
+    if args.command == "find-tee-times":
+        if args.start > args.end:
+            raise ValueError("`start` must be before `end`")
 
-    if (
-        args.earliest_time
-        and args.latest_time
-        and args.earliest_time > args.latest_time
+        if (
+            args.earliest_time
+            and args.latest_time
+            and args.earliest_time > args.latest_time
+        ):
+            raise ValueError("`earliest_time` must be before `latest_time`")
+
+        if args.nine_holes and args.eighteen_holes:
+            raise ValueError(
+                "`nine-holes` and `eighteen-holes` cannot both be specified, use neither if you want both returned"
+            )
+
+        if args.max_price is not None and args.max_price < 0:
+            raise ValueError("max_price cannot be negative")
+
+        if args.create_search:
+            if args.notification_method == "email":
+                for address in args.notification_destination:
+                    if not re.match(email_regex, address):
+                        raise ValueError(f"{address} is not a valid email address")
+
+        if args.courses and args.course_group:
+            raise ValueError("`courses` and `course_group` cannot both be specified.")
+
+    elif args.command in (
+        "create-course-group",
+        "add-to-course-group",
+        "remove-from-course-group",
     ):
-        raise ValueError("`earliest_time` must be before `latest_time`")
+        if not args.courses:
+            raise ValueError("Mush provide one or more courses")
 
-    if args.nine_holes and args.eighteen_holes:
-        raise ValueError(
-            "`nine-holes` and `eighteen-holes` cannot both be specified, use neither if you want both returned"
-        )
+        if not args.course_group:
+            raise ValueError("Must specify course group name")
 
-    if args.max_price is not None and args.max_price < 0:
-        raise ValueError("max_price cannot be negative")
-
-    if args.create_search:
-        if args.notification_method == "email":
-            for address in args.notification_destination:
-                if not re.match(email_regex, address):
-                    raise ValueError(f"{address} is not a valid email address")
+        if args.command in (
+            "add-to-course-group",
+            "remove-from-course-group",
+        ):
+            with DBClient() as client:
+                coures_group_courses = client.get_course_group(args.course_group)
+                if (
+                    coures_group_courses is None
+                    or len(coures_group_courses) == 1
+                    and coures_group_courses[0] is None
+                ):
+                    raise ValueError(
+                        f"No course group named {args.course_group} exists"
+                    )
 
 
 def parse_args():
@@ -78,7 +109,13 @@ def parse_args():
     arg_parser = argparse.ArgumentParser()
     arg_parser.add_argument(
         "command",
-        choices=["find-tee-times", "poll-for-tee-times"],
+        choices=[
+            "find-tee-times",
+            "poll-for-tee-times",
+            "create-course-group",
+            "add-to-course-group",
+            "remove-from-course-group",
+        ],
         help="task to perform",
     )
     arg_parser.add_argument(
@@ -160,6 +197,12 @@ def parse_args():
         "--create-search",
         action="store_true",
         help="If true, get notified when tee times matching parameters become available",
+    )
+    arg_parser.add_argument(
+        "--course-group",
+        type=str,
+        help="name of course group",
+        default=None,
     )
 
     args = arg_parser.parse_args()

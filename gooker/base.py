@@ -87,6 +87,7 @@ class TeeTimeSearchParams(BaseModel):
     earliest_time: Time | None = None
     latest_time: Time | None = None
     max_price: int | None = None
+    course_group: str | None = None
 
     @validator("start_date", "end_date")
     @classmethod
